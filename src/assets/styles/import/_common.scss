@@ -1,0 +1,21 @@
+$img-path: '../../assets/imgs/';
+$width-max: 1200px;
+$colors: (
+  'default': #0a93d5,
+  'more': #004587,
+  'info': #008f5c,
+  'more2':#003081,
+  'event':#d37d18,
+  'more3': #555);
+
+.a11y {
+  @include a11y;
+}
+
+.l-wrap {
+	max-width: $width-max;
+	margin: {
+		left: auto;
+		right: auto;
+	}
+}

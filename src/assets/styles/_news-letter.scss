@@ -1,0 +1,90 @@
+.news-letter {
+  @include debug;
+  @include bg($img-path + 'xnewsletter-bg.jpg');
+  @include relative;
+  display: flex;
+  align-items: center;
+  height: 360px;
+  color: #fff;
+  text-align: center;
+
+
+  &::before {
+    @include absolute($top: 0, $left: 0, $right: 0, $bottom: 0);
+    background-color: rgba(0, 0, 0, .6);
+    content: '';
+  }
+
+  .l-wrap {
+    position: relative;
+  }
+
+  h2 {
+    margin-bottom: 40px;
+    font-size: px2em(40px);
+  }
+
+  &__desc {
+    margin-bottom: 20px;
+  }
+
+  form {
+    // @include debug;
+    width: 600px;
+    margin: {
+      left: auto;
+      right: auto;
+    }
+  }
+
+  &__field {
+    // @include debug(#fff);
+    @include relative;
+    height: 50px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border-radius: 5px;
+
+    input {
+      width: 100%;
+      height: 100%;
+      padding: 11px 15px;
+      border: 0;
+      font-size: px2em(16px);
+    }
+  }
+
+  &__btn {
+    @include absolute($top: 50%, $right: 0);
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: 0;
+    font-size: px2em(38px);
+  }
+
+  &__agree {
+    // @include debug;
+    text-align: initial;
+    font-size: px2em(14px);
+
+    input {
+      @include size(20px);
+    }
+
+    a {
+      margin-right: 5px;
+      color: inherit;
+      text-decoration: underline;
+    }
+  }
+
+  @media (max-width: 650px) {
+    .l-wrap {
+      width: 90%;
+    }
+
+    form {
+      width: auto;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+
+.btn {
+  display: inline-block;
+  max-width: 300px;
+  width: 100%;
+  padding: 15px 0;
+  color: #fff;
+  border-radius: 10px;
+  font-size: px2em(14px);
+  text-align: center;
+  letter-spacing: 2px;
+  transition: all .1s linear;
+
+  @each $name, $color in $colors {
+    &--#{$name} {
+      border: 2px solid #{$color};
+      background-color: #{$color};
+
+      &:hover {
+        color: #{$color};
+      }
+    }
+  }
+
+  &:hover {
+    background-color: #fff;
+  }
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+}

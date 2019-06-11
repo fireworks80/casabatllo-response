@@ -1,0 +1,48 @@
+@mixin debug($color: red) {
+  outline: 1px dashed $color;
+}
+
+@mixin position($type, $top: null, $right: null, $bottom: null, $left: null) {
+  position: $type;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin fixed($args...) {
+  @include position(fixed, $args...);
+}
+@mixin relative($args...) {
+  @include position(relative, $args...);
+}
+@mixin absolute($args...) {
+  @include position(absolute, $args...);
+}
+
+@mixin size($w, $h: $w) {
+  width: $w;
+  height: $h;
+}
+
+@mixin a11y {
+  @include absolute;
+  @include size(1px);
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+@mixin bg($img, $pos: center top, $repeat: no-repeat, $color: null, $size: null) {
+  @if $img {
+    background: $color url($img) $repeat $pos $size;
+  } @else {
+
+  }
+  background: {
+    image: url($img);
+    repeat: $repeat;
+    color: $color;
+    position: $pos;
+    size: $size;
+  }
+}

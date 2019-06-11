@@ -1,0 +1,94 @@
+
+// $slide-img: ('xslider-skywalk.jpg', 'xrestauracion_slider.jpg', 'xcasa-batllo-slider.jpg');
+$slide-img: ('xslider-skywalk.jpg', 'xcasa-batllo-slider.jpg', 'xrestauracion_slider.jpg');
+
+.visual-banner {
+  margin-bottom: 60px;
+}
+
+.swiper-container {
+  @include size(100%, 702px);
+  margin-top: 52px;
+
+  @media (max-width: 768px) {
+    height: 612px;
+  }
+}
+
+.swiper-slide {
+  @include relative;
+
+  .banner-img {
+    height: 100%;
+    background: {
+      repeat: no-repeat;
+      position: center top;
+      size: cover;
+    }
+  }
+
+  @for $i from 1 through length($slide-img) {
+    @at-root &:nth-of-type(#{$i}) .banner-img {
+      background-image: url($img-path + nth($slide-img, $i));
+    }
+  }
+
+  @media (max-width: 768px) {
+
+    .banner-img {
+      height: 347px;
+    }
+  }
+}
+
+
+
+
+.banner-desc {
+  // @include debug;
+  @include absolute($bottom: 25%, $left: 100px);
+  width: 900px;
+  padding: 70px 105px 0;
+  line-height: 1.1;
+
+  &__bg {
+    @include absolute($top: 0, $left: 0);
+  }
+
+  &__txts {
+    @include relative;
+
+    h2 {
+      font-size: px2em(50px);
+      font-weight: bold;
+    }
+
+    p {
+      margin: 30px 0;
+      font-size: px2em(22px);
+      font-weight: normal;
+      line-height: 1.3;
+    }
+  }
+
+  &--1 {
+    padding: 70px 105px 0;
+  }
+
+  @media (max-width: 1439px) {
+    transform: scale(.9);
+    left: 50px;
+    bottom: 15%;
+  }
+
+  @media (max-width: 768px) {
+    position: static;
+    width: auto;
+    padding: 0;
+    text-align: center;
+
+    &__bg {
+      display: none;
+    }
+  }
+}
